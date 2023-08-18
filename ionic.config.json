@@ -1,0 +1,7 @@
+{
+  "name": "sunlightmap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
