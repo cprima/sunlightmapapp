@@ -10,4 +10,15 @@
       <ion-title size="large">map</ion-title>
     </ion-toolbar>
   </ion-header>
+
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+</ion-refresher>
+
+<canvas #canvas></canvas>
+
 </ion-content>

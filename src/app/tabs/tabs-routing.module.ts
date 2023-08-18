@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'map',
+    redirectTo: 'tabs/map',
     pathMatch: 'full'
   }
 ];
