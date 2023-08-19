@@ -4,6 +4,12 @@ import { environment } from '../../environments/environment';
 import { RefresherEventDetail } from '@ionic/core';
 
 import { IonRefresher } from '@ionic/angular';
+import { ModalController } from '@ionic/angular'; //fab location-form
+import { LocationFormComponent } from '../location-form/location-form.component';
+
+
+
+
 
 @Component({
   selector: 'app-map',
@@ -22,7 +28,9 @@ export class MapPage implements AfterViewInit {
   canvasWidth: number = this.HD_WIDTH;
   canvasHeight: number = this.HD_HEIGHT;
 
-  constructor(private http: HttpClient, private renderer: Renderer2) { }
+  constructor(private http: HttpClient,
+    private renderer: Renderer2,
+    public modalController: ModalController) { }
 
   ngAfterViewInit() {
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
@@ -113,6 +121,18 @@ export class MapPage implements AfterViewInit {
         // Even in case of error, indicate the refresh has finished
         (event as CustomEvent<RefresherEventDetail>).detail.complete();
       });
+  }
+
+  fabClicked() {
+    console.log('Floating Action Button Clicked!');
+    alert('FAB Clicked!');
+  }
+
+  async presentLocationForm() {
+    const modal = await this.modalController.create({
+      component: LocationFormComponent
+    });
+    return await modal.present();
   }
 
 

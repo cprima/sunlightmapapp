@@ -1,0 +1,8 @@
+<form [formGroup]="locationForm">
+  <ion-item>
+    <ion-label position="floating">Location</ion-label>
+    <ion-input formControlName="locationField"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="onSubmit()">Geolocate!</ion-button>
+</form>
